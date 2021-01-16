@@ -21,7 +21,7 @@ class App extends Component {
   state = {
   	photos: [],
   	loading: true
-  }
+};
 
 //RETRIEVING DATA FROM API LINK
 componentDidMount(){
