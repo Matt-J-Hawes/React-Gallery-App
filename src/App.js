@@ -4,7 +4,8 @@ import axios from 'axios';
 import {
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
+  Redirect
 } from "react-router-dom";
 
 //NECESSARY COMPONENTS
@@ -12,7 +13,7 @@ import Title from './components/Title';
 import SearchForm from './components/SearchForm';
 import Nav from './components/Nav';
 import Error404 from './components/Error404';
-import apiKey from './components/config.js';
+import apiKey from './api-key/config.js';
 import SearchResults from './components/SearchResults';
 
 //APP 
@@ -47,10 +48,13 @@ performSearch = (tags = 'black and white and red') => {
          <Router>
 		   <SearchForm onSearch= {this.performSearch} data ={this.state.photos}/>
 		       <Switch>
+		           <Route exact path = '/'> 
+			           {(this.state.loading) ? <p>Loading...</p> : <SearchResults data={this.state.photos}/> }
+			       </Route>
 			       <Route path = '/sports'>
 				      {(this.state.loading) ? <p>Loading...</p> : <Nav />}
 			       </Route>
-			       <Route exact path = '/search'> 
+			       <Route path = '/search'> 
 			           {(this.state.loading) ? <p>Loading...</p> : <SearchResults data={this.state.photos}/> }
 			       </Route>
 			       <Route> 

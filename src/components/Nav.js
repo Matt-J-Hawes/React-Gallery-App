@@ -5,7 +5,7 @@ import {
  Route,
  NavLink,
 } from 'react-router-dom';
-import apiKey from './config';
+import apiKey from '../api-key/config.js';
 
 //SPORT DEFAULTS
 import NBA from './sports/NBA';
