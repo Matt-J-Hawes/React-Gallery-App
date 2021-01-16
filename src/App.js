@@ -4,8 +4,7 @@ import axios from 'axios';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect
+  Switch
 } from "react-router-dom";
 
 //NECESSARY COMPONENTS
