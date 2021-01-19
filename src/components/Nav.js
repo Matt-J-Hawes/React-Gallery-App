@@ -83,7 +83,7 @@ nhlPage = (tags = 'nhl-hockey') => {
           <li><NavLink to='/sports/NHL'>NHL</NavLink></li>
         </ul>
         <Route exact path = '/sports/NBA'>
-        {(this.state.loading ? <Loading /> : <NBA data = {this.state.nba}/>)}
+         {(this.state.loading ? <Loading /> : <NBA data = {this.state.nba}/>)}
         </Route>
         <Route exact path = '/sports/NFL'>
 		 {(this.state.loading ? <Loading /> : <NFL data = {this.state.nfl}/>)}
