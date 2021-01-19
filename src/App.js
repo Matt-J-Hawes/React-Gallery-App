@@ -29,14 +29,16 @@ componentDidMount(){
 
 //DEFAULT HOME PAGE AND DYNAMIC SEARCH
 performSearch = (tags = 'black and white and red') => {
-	axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${tags}&per_page=24&format=json&nojsoncallback=1`)
-	   .then(res => {
-	   	   this.setState({
-	   	   	   photos: res.data.photos.photo,
-	   	   	   loading: false
-	   	   }) 
+	this.setState({loading: true}, () => {
+		axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${tags}&per_page=24&format=json&nojsoncallback=1`)
+		   .then(res => {
+		   	   this.setState({
+		   	   	   photos: res.data.photos.photo,
+		   	   	   loading: false
+		   	   }) 
+		})
+		   .catch(error => console.log('Error fetching and parsing data', error));
 	})
-	   .catch(error => console.log('Error fetching and parsing data', error));
 };
 
 //HTML RENDERING
