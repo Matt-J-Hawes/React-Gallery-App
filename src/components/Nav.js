@@ -12,6 +12,9 @@ import NBA from './sports/NBA';
 import NHL from './sports/NHL';
 import NFL from './sports/NFL';
 
+//NECESSARY COMPONENTS
+import Loading from './Loading'
+
 //NAV 
 class Nav extends Component {
 state = {
@@ -80,13 +83,13 @@ nhlPage = (tags = 'nhl-hockey') => {
           <li><NavLink to='/sports/NHL'>NHL</NavLink></li>
         </ul>
         <Route exact path = '/sports/NBA'>
-        {(this.state.loading ? <p>Loading...</p> : <NBA data = {this.state.nba}/>)}
+        {(this.state.loading ? <Loading /> : <NBA data = {this.state.nba}/>)}
         </Route>
         <Route exact path = '/sports/NFL'>
-		 {(this.state.loading ? <p>Loading...</p> : <NFL data = {this.state.nfl}/>)}
+		 {(this.state.loading ? <Loading /> : <NFL data = {this.state.nfl}/>)}
         </Route>
         <Route exact path = '/sports/NHL'>
-		 {(this.state.loading ? <p>Loading...</p> : <NHL data = {this.state.nhl}/>)}
+		 {(this.state.loading ? <Loading /> : <NHL data = {this.state.nhl}/>)}
         </Route>
       </nav>
 	);

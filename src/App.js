@@ -14,6 +14,7 @@ import Nav from './components/Nav';
 import Error404 from './components/Error404';
 import apiKey from './api-key/config.js';
 import SearchResults from './components/SearchResults';
+import Loading from './components/Loading'
 
 //APP 
 class App extends Component {
@@ -50,13 +51,13 @@ performSearch = (tags = 'black and white and red') => {
 		   <SearchForm onSearch= {this.performSearch} data ={this.state.photos}/>
 		       <Switch>
 		           <Route exact path = '/'> 
-			           {(this.state.loading) ? <p>Loading...</p> : <SearchResults data={this.state.photos}/> }
+			           {(this.state.loading) ? <Loading /> : <SearchResults data={this.state.photos}/> }
 			       </Route>
 			       <Route path = '/sports'>
-				      {(this.state.loading) ? <p>Loading...</p> : <Nav />}
+				      {(this.state.loading) ? <Loading /> : <Nav />}
 			       </Route>
 			       <Route path = '/search'> 
-			           {(this.state.loading) ? <p>Loading...</p> : <SearchResults data={this.state.photos}/> }
+			           {(this.state.loading) ? <Loading /> : <SearchResults data={this.state.photos}/> }
 			       </Route>
 			       <Route> 
 			           <Error404 />
