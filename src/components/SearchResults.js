@@ -2,7 +2,6 @@
 import React from 'react';
 //NECESSARY COMPONENTS
 import Photo from './Photo';
-import Nav from './Nav';
 import NotFound from './NotFound'
 
 //APP
@@ -16,7 +15,6 @@ if(results.length){
 }
 	return (
 	<div>
-	  <Nav/>
 	      <div className="photo-container">
 			<h2>{results.length ? 'Results' : null}</h2>
 		        {results.length ? <ul>{searchPhoto}</ul> : searchPhoto}

@@ -14,13 +14,16 @@ import Nav from './components/Nav';
 import Error404 from './components/Error404';
 import apiKey from './api-key/config.js';
 import SearchResults from './components/SearchResults';
-import Loading from './components/Loading'
+import Loading from './components/Loading';
+import NBA from './components/sports/NBA';
+import NHL from './components/sports/NHL';
+import NFL from './components/sports/NFL';
 
 //APP 
 class App extends Component {
   state = {
   	photos: [],
-  	loading: true
+  	loading: true,
 };
 
 //RETRIEVING DATA FROM API LINK
@@ -35,7 +38,7 @@ performSearch = (tags = 'black and white and red') => {
 		   .then(res => {
 		   	   this.setState({
 		   	   	   photos: res.data.photos.photo,
-		   	   	   loading: false
+		   	   	   loading: false,
 		   	   }) 
 		})
 		   .catch(error => console.log('Error fetching and parsing data', error));
@@ -49,13 +52,20 @@ performSearch = (tags = 'black and white and red') => {
 	    <Title />
          <Router>
 		   <SearchForm onSearch= {this.performSearch} data ={this.state.photos}/>
+		   <Nav />
 		       <Switch>
 		           <Route exact path = '/'> 
 			           {(this.state.loading) ? <Loading /> : <SearchResults data={this.state.photos}/> }
 			       </Route>
-			       <Route path = '/sports'>
-				      {(this.state.loading) ? <Loading /> : <Nav />}
-			       </Route>
+	               <Route path = '/sports/NBA'>
+			         <NBA />
+			        </Route>
+			        <Route path = '/sports/NFL'>
+					 <NFL /> 
+			        </Route>
+			        <Route path = '/sports/NHL'>
+					 <NHL />
+			        </Route>
 			       <Route path = '/search'> 
 			           {(this.state.loading) ? <Loading /> : <SearchResults data={this.state.photos}/> }
 			       </Route>
