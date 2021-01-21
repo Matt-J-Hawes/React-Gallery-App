@@ -24,6 +24,7 @@ class App extends Component {
   state = {
   	photos: [],
   	loading: true,
+  	query: ''
 };
 
 //RETRIEVING DATA FROM API LINK
@@ -39,6 +40,7 @@ performSearch = (tags = 'black and white and red') => {
 		   	   this.setState({
 		   	   	   photos: res.data.photos.photo,
 		   	   	   loading: false,
+		   	   	   query: tags
 		   	   }) 
 		})
 		   .catch(error => console.log('Error fetching and parsing data', error));
@@ -66,8 +68,8 @@ performSearch = (tags = 'black and white and red') => {
 			        <Route path = '/sports/NHL'>
 					 <NHL />
 			        </Route>
-			       <Route path = '/search'> 
-			           {(this.state.loading) ? <Loading /> : <SearchResults data={this.state.photos}/> }
+			       <Route path = '/search/:query'> 
+			           {(this.state.loading) ? <Loading /> : <SearchResults query={this.state.query} onLoad={this.performSearch} data={this.state.photos}/> }
 			       </Route>
 			       <Route> 
 			           <Error404 />

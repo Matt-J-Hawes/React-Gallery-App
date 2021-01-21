@@ -7,7 +7,8 @@ class SearchForm extends Component {
 	//APPS STATE
 	state = {
 		searchText: '',
-		redirect: false
+		redirect: false,
+		query: ''
 	};
 
     //FOCUS INPUT ON PAGE LOAD
@@ -17,7 +18,10 @@ class SearchForm extends Component {
 
     //SET SEARCH TEXT TO EQUAL USER INPUT
 	onSearchChange = e => {
-		this.setState({searchText: e.target.value});
+		this.setState({
+			searchText: e.target.value,
+			query: e.target.value
+		});
 	};
 
     //COLLECT DATA BASED ON USER INPUT - STORE INPUT AS THE URL 'TAG'
@@ -35,11 +39,11 @@ class SearchForm extends Component {
   };
   
   renderRedirect = () => {
-    if (this.state.redirect){
+    if (this.state.redirect && this.state.query !== ''){
 	  this.setState({
       	redirect: false
       })
-      return <Redirect to='/search' />
+      return <Redirect to= {`/search/${this.state.query}`} />
     }; 
   };
 

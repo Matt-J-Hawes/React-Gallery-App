@@ -6,7 +6,7 @@ import NotFound from './NotFound'
 
 //APP
 const SearchResults = (props) => {
-const results = props.data
+const results = props.data;
 let searchPhoto;
 if(results.length){
     searchPhoto = results.map(photo => <Photo url = {`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} key={photo.id} title={photo.title}/>);
