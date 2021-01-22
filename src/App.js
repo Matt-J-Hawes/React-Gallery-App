@@ -41,7 +41,7 @@ performSearch = (tags = 'black and white and red') => {
 		   	   	   photos: res.data.photos.photo,
 		   	   	   loading: false,
 		   	   	   query: tags
-		   	   }) 
+		   	   })
 		})
 		   .catch(error => console.log('Error fetching and parsing data', error));
 	})
