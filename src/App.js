@@ -68,7 +68,7 @@ performSearch = (tags = 'black and white and red') => {
 			        <Route path = '/sports/NHL'>
 					 <NHL />
 			        </Route>
-			       <Route path = '/search/:query?'> 
+			       <Route path = '/search/:query'> 
 			           {(this.state.loading) ? <Loading /> : <SearchResults query={this.state.query} onLoad={this.performSearch} data={this.state.photos}/> }
 			       </Route>
 			       <Route> 
