@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# How to run the app 
+
+To run the app - please create a folder named 'api-key' inside src directory. Inside this folder please create a config.js file and create a variable declaring your personal flickr api-key names 'apiKey'.
+
 ## Available Scripts
 
 In the project directory, you can run:
